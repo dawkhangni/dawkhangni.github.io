@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>库片网官网-库片网官网首页入口_库片网免费素材下载平台</title>
+<meta name="description" content="库片网官网首页入口，汇聚图片、视频、音频、矢量图与设计模板等素材资源，提供分类浏览、关键词检索与免费下载入口，帮助设计师与内容创作者快速找到可用素材。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2b4b'/%3E%3Cpath d='M18 20h17a9 9 0 0 1 0 18H18z' fill='none' stroke='%23f4b942' stroke-width='4'/%3E%3Ccircle cx='46' cy='44' r='6' fill='%23e2584a'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#17233b;
+  --ink-soft:#4a5670;
+  --paper:#f7f5f0;
+  --card:#ffffff;
+  --line:#e2ded4;
+  --navy:#1b2b4b;
+  --gold:#f4b942;
+  --red:#e2584a;
+  --teal:#2f7f76;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(23,35,59,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1140px,92vw);margin-inline:auto}
+
+/* 头部 */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,245,240,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;gap:24px;
+  padding:14px 0;flex-wrap:wrap;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.12rem;letter-spacing:.02em;color:var(--navy)}
+.logo svg{width:36px;height:36px;flex:none}
+.nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.nav a{
+  padding:7px 13px;border-radius:999px;font-size:.92rem;color:var(--ink-soft);
+  transition:.2s;
+}
+.nav a:hover,.nav a:focus-visible{background:#ece8dd;color:var(--navy)}
+.nav a.cta{background:var(--navy);color:#fff}
+.nav a.cta:hover{background:#12203c}
+
+/* 首屏 */
+.hero{padding:64px 0 56px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.8rem;font-weight:700;letter-spacing:.14em;
+  color:var(--teal);text-transform:uppercase;margin-bottom:16px;
+}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--teal);border-radius:2px}
+h1{
+  font-size:clamp(2rem,4.4vw,3.1rem);
+  line-height:1.24;font-weight:900;letter-spacing:-.01em;color:var(--navy);
+}
+.hero-lead{margin-top:20px;font-size:1.02rem;color:var(--ink-soft);max-width:34em}
+.hero-actions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:999px;font-weight:700;font-size:.95rem;
+  border:1px solid transparent;transition:.2s;
+}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 8px 20px rgba(27,43,75,.22)}
+.btn-primary:hover{background:#12203c;transform:translateY(-1px)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--navy)}
+.btn-ghost:hover{border-color:var(--navy)}
+.btn-ghost[aria-disabled="true"]{opacity:.55;cursor:not-allowed;pointer-events:none}
+.hero-stats{display:flex;gap:28px;margin-top:36px;flex-wrap:wrap}
+.stat b{display:block;font-size:1.5rem;color:var(--navy);line-height:1.2}
+.stat span{font-size:.82rem;color:var(--ink-soft)}
+
+/* 首屏插画 */
+.hero-art{
+  background:linear-gradient(160deg,#1b2b4b,#243a63 60%,#2f4a78);
+  border-radius:24px;padding:22px;box-shadow:var(--shadow);
+  position:relative;
+}
+.hero-art figcaption{color:#c9d2e4;font-size:.78rem;margin-top:12px;text-align:center}
+.art-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.art-cell{
+  border-radius:12px;aspect-ratio:4/3;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.07);
+}
+.art-cell.gold{background:rgba(244,185,66,.18)}
+.art-cell.red{background:rgba(226,88,74,.2)}
+.art-cell.teal{background:rgba(47,127,118,.22)}
+.art-cell svg{width:46%;height:46%}
+
+/* 通用分区 */
+section{padding:56px 0}
+.section-head{max-width:44em;margin-bottom:32px}
+.section-head h2{
+  font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:800;color:var(--navy);letter-spacing:-.01em;
+}
+.section-head h2::after{
+  content:"";display:block;width:44px;height:3px;background:var(--gold);
+  border-radius:3px;margin-top:12px;
+}
+.section-head p{margin-top:14px;color:var(--ink-soft);font-size:.97rem}
+
+/* 素材分类 */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cat-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;transition:.2s;
+}
+.cat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cfc9bb}
+.cat-card .ico{
+  width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:#f1ede3;margin-bottom:14px;
+}
+.cat-card .ico svg{width:24px;height:24px}
+.cat-card h3{font-size:1.05rem;color:var(--navy);margin-bottom:8px}
+.cat-card p{font-size:.9rem;color:var(--ink-soft)}
+.cat-card .tag{
+  display:inline-block;margin-top:14px;font-size:.78rem;font-weight:700;
+  color:var(--teal);letter-spacing:.04em;
+}
+
+/* 检索区 */
+.search-panel{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;box-shadow:var(--shadow);
+}
+.search-row{display:flex;gap:12px;flex-wrap:wrap}
+.search-row input{
+  flex:1 1 260px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;
+  font-size:.95rem;font-family:inherit;background:#fbfaf7;color:var(--ink);
+}
+.search-row input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.search-row button{
+  padding:12px 26px;border:none;border-radius:10px;background:var(--navy);color:#fff;
+  font-weight:700;font-size:.95rem;font-family:inherit;cursor:pointer;transition:.2s;
+}
+.search-row button:hover{background:#12203c}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.chips button{
+  padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:#fbfaf7;
+  font-size:.85rem;color:var(--ink-soft);font-family:inherit;cursor:pointer;transition:.2s;
+}
+.chips button:hover{border-color:var(--navy);color:var(--navy)}
+.search-result{margin-top:16px;font-size:.9rem;color:var(--ink-soft);min-height:1.6em}
+
+/* 使用指南 */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}
+.step{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;position:relative;
+}
+.step::before{
+  counter-increment:step;content:"0" counter(step);
+  font-size:.8rem;font-weight:800;color:var(--gold);letter-spacing:.1em;
+}
+.step h3{font-size:1rem;margin:8px 0 8px;color:var(--navy)}
+.step p{font-size:.88rem;color:var(--ink-soft)}
+
+/* 答疑 */
+.faq-list{display:grid;gap:12px}
+details{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;
+}
+details[open]{border-color:#cfc9bb;box-shadow:var(--shadow)}
+summary{
+  cursor:pointer;font-weight:700;color:var(--navy);font-size:.97rem;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.2rem;color:var(--gold);font-weight:800}
+details[open] summary::after{content:"–"}
+details p{margin-top:12px;font-size:.92rem;color:var(--ink-soft)}
+
+/* 关于正文区 */
+.about-band{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.about-grid h3{font-size:1.05rem;color:var(--navy);margin-bottom:10px}
+.about-grid p{font-size:.94rem;color:var(--ink-soft);margin-bottom:16px}
+.about-note{
+  background:var(--paper);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;
+  padding:14px 18px;font-size:.9rem;color:var(--ink-soft);
+}
+
+/* 页尾 */
+.site-footer{background:var(--navy);color:#c9d2e4;padding:48px 0 28px;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+.footer-brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#fff;font-size:1.05rem;margin-bottom:14px}
+.footer-brand svg{width:32px;height:32px}
+.site-footer p{font-size:.88rem;line-height:1.8}
+.site-footer h4{color:#fff;font-size:.9rem;margin-bottom:12px;letter-spacing:.06em}
+.site-footer ul{list-style:none;display:grid;gap:8px;font-size:.88rem}
+.site-footer a:hover{color:var(--gold)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-top:20px;
+  font-size:.8rem;color:#8f9cb5;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+
+/* 响应式 */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-art{order:-1;max-width:460px}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:26px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .hero{padding:40px 0 36px}
+  section{padding:40px 0}
+  .cat-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .nav{gap:2px}
+  .nav a{padding:6px 10px;font-size:.86rem}
+  .hero-stats{gap:20px}
+  .hero-art{padding:16px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="库片网官网首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1b2b4b"/>
+        <path d="M18 20h17a9 9 0 0 1 0 18H18z" fill="none" stroke="#f4b942" stroke-width="4"/>
+        <circle cx="46" cy="44" r="6" fill="#e2584a"/>
+      </svg>
+      <span>库片网官网</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#categories">素材分类</a>
+      <a href="#find">查找素材</a>
+      <a href="#guide">使用指南</a>
+      <a href="#faq">常见问题</a>
+      <a class="cta" href="#find">开始检索</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">素材资源 · 设计支持</span>
+        <h1>库片网官网</h1>
+        <p class="hero-lead">
+          库片网官网是一个面向设计师、编辑与内容创作者的素材资源站点。页面把图片、视频、音频、矢量图形与设计模板归入清晰的分类，配合关键词检索，帮助你在有限时间内定位到合适的素材，并把它们用进实际项目。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#find">检索素材</a>
+          <a class="btn btn-ghost" href="#categories">浏览分类</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>5</b><span>素材大类</span></div>
+          <div class="stat"><b>3</b><span>检索方式</span></div>
+          <div class="stat"><b>1</b><span>统一入口</span></div>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <div class="art-grid" aria-hidden="true">
+          <div class="art-cell gold">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f4b942" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M4 18l5-5 3 3 3-4 5 6"/></svg>
+          </div>
+          <div class="art-cell red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#f0a09a" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg>
+          </div>
+          <div class="art-cell teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#8fd0c7" stroke-width="1.8"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="2" y="13" width="4" height="7" rx="1.5"/><rect x="18" y="13" width="4" height="7" rx="1.5"/></svg>
+          </div>
+          <div class="art-cell">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#b9c6e0" stroke-width="1.8"><path d="M4 19V7l8-3 8 3v12"/><path d="M4 19h16"/><path d="M9 19v-5h6v5"/></svg>
+          </div>
+        </div>
+        <figcaption>图片 · 视频 · 音频 · 矢量 · 模板</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 素材分类 -->
+  <section id="categories">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>按素材类型进入库片网官网</h2>
+        <p>不同项目需要的文件形态并不一样。先确定素材类型，再缩小到具体主题，是使用库片网官网时更高效的顺序。</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f7f76" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M4 18l5-5 3 3 3-4 5 6"/></svg></div>
+          <h3>图片素材</h3>
+          <p>适用于网页配图、文章封面与营销图底图。检索时优先使用场景词加主体词，例如“清晨 咖啡 桌面”，比单个宽泛词更容易得到可用结果。</p>
+          <span class="tag">场景配图 · 背景图</span>
+        </article>
+        <article class="cat-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#e2584a" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></div>
+          <h3>视频与动态素材</h3>
+          <p>适合片头、转场、社交媒体短视频与展示页。下载前先确认画面比例与时长是否匹配发布渠道，避免二次裁剪造成主体缺失。</p>
+          <span class="tag">片头 · 转场 · 短视频</span>
+        </article>
+        <article class="cat-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#f4b942" stroke-width="1.8"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="2" y="13" width="4" height="7" rx="1.5"/><rect x="18" y="13" width="4" height="7" rx="1.5"/></svg></div>
+          <h3>音频与配乐</h3>
+          <p>用于视频背景、播客片头与活动暖场。建议按情绪与节奏筛选，再把选中的音频与画面时长对齐，减少后期反复替换。</p>
+          <span class="tag">背景乐 · 音效 · 片头</span>
+        </article>
+        <article class="cat-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#1b2b4b" stroke-width="1.8"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 3v18"/><path d="M4 7.5l8 4.5 8-4.5"/></svg></div>
+          <h3>矢量图形与图标</h3>
+          <p>矢量文件在放大后仍保持清晰，适合标志延展、信息图与界面图标。使用时注意统一描边粗细与圆角风格，避免图标混搭。</p>
+          <span class="tag">图标 · 插画 · 信息图</span>
+        </article>
+        <article class="cat-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f7f76" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 9v12"/></svg></div>
+          <h3>设计模板</h3>
+          <p>包含版式、配色与字体层级，可作为起稿参考。替换文案与图片后仍需检查留白与对齐，模板只是起点，不是最终稿。</p>
+          <span class="tag">版式 · 配色 · 起稿</span>
+        </article>
+        <article class="cat-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#e2584a" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg></div>
+          <h3>专题合集</h3>
+          <p>围绕节日、季节与行业主题整理的合集页，适合需要成套视觉的项目。合集内的素材风格接近，能减少逐张比对的成本。</p>
+          <span class="tag">节日 · 行业 · 成套</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 检索 -->
+  <section id="find">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>在库片网官网查找素材</h2>
+        <p>输入关键词即可在本页获得匹配提示。检索结果仅作分类引导，具体素材请从对应分类进入查看。</p>
+      </div>
+      <div class="search-panel">
+        <form class="search-row" id="searchForm" role="search">
+          <label for="kw" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">素材关键词</label>
+          <input id="kw" name="kw" type="search" placeholder="试试：城市 夜景、商务 人物、节日 海报" autocomplete="off">
+          <button type="submit">检索</button>
+        </form>
+        <div class="chips" aria-label="热门关键词">
+          <button type="button" data-kw="城市 夜景">城市 夜景</button>
+          <button type="button" data-kw="商务 人物">商务 人物</button>
+          <button type="button" data-kw="节日 海报">节日 海报</button>
+          <button type="button" data-kw="自然 风景">自然 风景</button>
+          <button type="button" data-kw="科技 背景">科技 背景</button>
+        </div>
+        <p class="search-result" id="result" aria-live="polite">输入关键词后，这里会显示可前往的分类。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用指南 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>四步完成一次素材选用</h2>
+        <p>库片网官网的素材数量较多，按固定顺序操作能减少反复搜索，也便于团队交接时复现选择过程。</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <h3>明确用途</h3>
+          <p>先写清素材出现在哪里：网页横幅、短视频封面还是印刷物料。用途决定比例、分辨率与文件格式，先定用途再搜索。</p>
+        </article>
+        <article class="step">
+          <h3>组合关键词</h3>
+          <p>用“场景 + 主体 + 风格”组合，例如“办公室 团队 简约”。词与词之间留空格，比长句更容易命中相近素材。</p>
+        </article>
+        <article class="step">
+          <h3>比对细节</h3>
+          <p>重点看主体位置、留白区域与画面色调，确认文案能放在预留空间里。多张候选时优先选风格统一的一组。</p>
+        </article>
+        <article class="step">
+          <h3>记录来源</h3>
+          <p>选用后把素材名称与分类记入项目文档，方便后续替换或复用，也便于协作成员快速找到同一份文件。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关于 -->
+  <section class="about-band">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>库片网官网的内容定位</h2>
+        <p>页面围绕素材的发现、比对与选用组织内容，不追求堆砌数量，而是让每个分区承担明确的信息任务。</p>
+      </div>
+      <div class="about-grid">
+        <div>
+          <h3>面向谁</h3>
+          <p>主要访问者是需要快速产出视觉内容的设计师、新媒体编辑、电商运营与小型团队。他们通常已有明确的项目节点，需要的是可用的文件，而不是漫无目的浏览。</p>
+          <h3>提供什么</h3>
+          <p>库片网官网把素材按图片、视频、音频、矢量与模板划分，并提供关键词检索与专题合集两条查找路径。分类页说明素材的典型用途，专题页则解决成套视觉的需求。</p>
+        </div>
+        <div>
+          <h3>怎么使用更有效</h3>
+          <p>如果项目刚开始，可以从专题合集确定整体风格；如果已有明确画面构想，直接用组合关键词检索更快。两种方式并不冲突，可以在同一项目中交替使用。</p>
+          <div class="about-note">
+            提示：素材的可用范围与授权说明以对应素材页的标注为准。批量使用前，建议先确认所需文件格式与发布渠道是否匹配。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 答疑 -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>常见问题</h2>
+        <p>以下是访问库片网官网时较常遇到的几个问题，按查找、格式与协作三个角度整理。</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>搜不到想要的素材怎么办？</summary>
+          <p>先减少关键词数量，保留最核心的主体词；再尝试替换同义词，例如把“办公室”换成“工位”。若仍无结果，可转到专题合集按主题浏览。</p>
+        </details>
+        <details>
+          <summary>不同分类的素材可以混用吗？</summary>
+          <p>可以，但要注意风格统一。图片、插画与图标混排时，建议先确定一套主色与描边规则，再逐项替换，避免画面元素各自为政。</p>
+        </details>
+        <details>
+          <summary>下载前需要确认哪些信息？</summary>
+          <p>重点确认文件格式、尺寸或时长，以及素材页注明的使用范围。用于商业发布时，应保留素材标识信息，方便后续核查。</p>
+        </details>
+        <details>
+          <summary>团队协作时如何避免重复找素材？</summary>
+          <p>建立共享的素材记录表，写下素材名称、所属分类与使用位置。新成员接手时可直接从记录表进入对应分类，减少重复检索。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#243a63"/>
+            <path d="M18 20h17a9 9 0 0 1 0 18H18z" fill="none" stroke="#f4b942" stroke-width="4"/>
+            <circle cx="46" cy="44" r="6" fill="#e2584a"/>
+          </svg>
+          <span>库片网官网</span>
+        </div>
+        <p>库片网官网聚焦素材的发现与选用，按图片、视频、音频、矢量与模板组织内容，为设计、编辑与运营工作提供清晰的查找路径。</p>
+      </div>
+      <div>
+        <h4>站内导航</h4>
+        <ul>
+          <li><a href="#categories">素材分类</a></li>
+          <li><a href="#find">查找素材</a></li>
+          <li><a href="#guide">使用指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>素材类型</h4>
+        <ul>
+          <li><a href="#categories">图片素材</a></li>
+          <li><a href="#categories">视频与动态</a></li>
+          <li><a href="#categories">音频与配乐</a></li>
+          <li><a href="#categories">矢量与模板</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>库片网官网 · 素材资源首页</span>
+      <span>页面内容以分类引导与使用说明为主</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var map = [
+    {keys:["城市","夜景","街景","建筑"],cat:"图片素材",tip:"城市与建筑主题建议查看图片素材，并搭配横向构图用于横幅。"},
+    {keys:["商务","人物","职场","团队"],cat:"图片素材",tip:"商务人物类可优先看图片素材，注意人物视线方向与文案位置。"},
+    {keys:["节日","海报","活动","庆典"],cat:"设计模板",tip:"节日与活动主题可查看设计模板与专题合集，便于成套使用。"},
+    {keys:["自然","风景","山水","植物"],cat:"图片素材",tip:"自然风景类建议在图片素材中按季节词进一步缩小范围。"},
+    {keys:["科技","背景","数据","未来"],cat:"矢量图形与图标",tip:"科技背景可结合矢量图形与图片素材，保持线条风格统一。"},
+    {keys:["视频","片头","转场","短片"],cat:"视频与动态素材",tip:"视频类需求请进入视频与动态素材，先确认比例与时长。"},
+    {keys:["音频","配乐","音效","音乐"],cat:"音频与配乐",tip:"音频需求请进入音频与配乐，按情绪与节奏筛选。"},
+    {keys:["图标","插画","矢量","信息图"],cat:"矢量图形与图标",tip:"矢量类需求请进入矢量图形与图标，注意描边与圆角统一。"}
+  ];
+  var form = document.getElementById("searchForm");
+  var input = document.getElementById("kw");
+  var out = document.getElementById("result");
+
+  function doSearch(q){
+    q = (q || "").trim();
+    if(!q){
+      out.textContent = "请输入关键词，例如“城市 夜景”。";
+      return;
+    }
+    var hit = null;
+    for(var i=0;i<map.length;i++){
+      for(var j=0;j<map[i].keys.length;j++){
+        if(q.indexOf(map[i].keys[j]) > -1){ hit = map[i]; break; }
+      }
+      if(hit) break;
+    }
+    if(hit){
+      out.textContent = "关键词“" + q + "”：建议前往「" + hit.cat + "」。 " + hit.tip;
+    }else{
+      out.textContent = "关键词“" + q + "”：暂未匹配到具体分类，可尝试减少关键词数量，或从素材分类中按主题浏览。";
+    }
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    doSearch(input.value);
+  });
+
+  document.querySelectorAll(".chips button").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      input.value = btn.getAttribute("data-kw");
+      doSearch(input.value);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
