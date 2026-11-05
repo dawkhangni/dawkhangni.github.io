@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>韩剧免费大片在线观看-韩剧大全免费在线观看_韩国电视剧高清资源在线播放</title>
+<meta name="description" content="韩剧免费大片在线观看主题首页，汇集韩剧大全、热门韩国电视剧与高清资源在线播放入口，按题材与热度整理观看路径，方便快速找到想看的韩剧免费大片。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1f3b'/%3E%3Crect x='12' y='18' width='40' height='28' rx='5' fill='none' stroke='%23ff5d73' stroke-width='3'/%3E%3Cpath d='M27 26l13 7-13 7z' fill='%23ffd166'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1b1f3b;
+  --ink-soft:#3c4166;
+  --muted:#6b7191;
+  --line:#e3e6f2;
+  --bg:#f7f8fc;
+  --card:#ffffff;
+  --rose:#ff5d73;
+  --rose-deep:#e2455b;
+  --gold:#ffd166;
+  --teal:#2ec4b6;
+  --radius:16px;
+  --max:1120px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3,p,ul{margin:0;}
+ul{padding:0;list-style:none;}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px;}
+
+/* 页头 */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(247,248,252,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;gap:20px;
+  height:68px;
+}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.brand-mark{
+  width:38px;height:38px;border-radius:11px;
+  background:var(--ink);
+  display:grid;place-items:center;
+}
+.brand-text{
+  font-size:17px;font-weight:800;letter-spacing:.3px;
+  color:var(--ink);white-space:nowrap;
+}
+.main-nav{margin-left:auto;}
+.main-nav ul{display:flex;gap:4px;flex-wrap:wrap;}
+.main-nav a{
+  display:block;padding:8px 12px;border-radius:9px;
+  font-size:14.5px;color:var(--ink-soft);font-weight:500;
+  transition:background .18s,color .18s;
+}
+.main-nav a:hover{background:#eceffa;color:var(--ink);}
+.nav-cta{
+  margin-left:8px;flex-shrink:0;
+  background:var(--rose);color:#fff !important;
+  padding:9px 18px;border-radius:10px;font-size:14.5px;font-weight:700;
+  box-shadow:0 6px 16px rgba(255,93,115,.3);
+  transition:transform .18s,box-shadow .18s;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 9px 20px rgba(255,93,115,.38);}
+.menu-toggle{display:none;}
+
+/* 首屏 */
+.hero{
+  padding:54px 0 46px;
+  background:
+    radial-gradient(900px 380px at 88% -10%,rgba(255,93,115,.14),transparent 62%),
+    radial-gradient(700px 340px at 4% 110%,rgba(46,196,182,.13),transparent 60%);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#fff;border:1px solid var(--line);
+  padding:6px 14px;border-radius:999px;
+  font-size:13px;font-weight:600;color:var(--rose-deep);
+  box-shadow:0 3px 10px rgba(27,31,59,.05);
+}
+.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--rose);}
+h1{
+  font-size:clamp(28px,4.1vw,44px);
+  line-height:1.28;
+  font-weight:900;
+  letter-spacing:.5px;
+  margin:18px 0 16px;
+  color:var(--ink);
+}
+.hero-lead{
+  font-size:16.5px;color:var(--ink-soft);max-width:34em;
+}
+.hero-actions{
+  display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:11px;
+  font-size:15px;font-weight:700;border:1px solid transparent;
+  cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s;
+}
+.btn-primary{
+  background:var(--rose);color:#fff;
+  box-shadow:0 8px 20px rgba(255,93,115,.32);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,93,115,.4);}
+.btn-ghost{
+  background:#fff;color:var(--ink);border-color:var(--line);
+}
+.btn-ghost:hover{border-color:#c9cfe8;background:#fbfcff;}
+.hero-stats{
+  display:flex;gap:34px;margin-top:34px;flex-wrap:wrap;
+}
+.hero-stats div strong{
+  display:block;font-size:22px;font-weight:900;color:var(--ink);line-height:1.3;
+}
+.hero-stats div span{font-size:13px;color:var(--muted);}
+.hero-art{
+  background:#fff;border:1px solid var(--line);border-radius:22px;
+  padding:18px;box-shadow:0 20px 46px rgba(27,31,59,.09);
+}
+.hero-art svg{width:100%;height:auto;border-radius:14px;}
+
+/* 通用分区 */
+.section{padding:56px 0;}
+.section-head{max-width:640px;margin-bottom:30px;}
+.eyebrow{
+  font-size:13px;font-weight:800;letter-spacing:1.6px;
+  color:var(--rose-deep);text-transform:uppercase;
+}
+.section-head h2{
+  font-size:clamp(22px,2.6vw,29px);font-weight:800;line-height:1.35;
+  margin:8px 0 10px;
+}
+.section-head p{color:var(--muted);font-size:15.5px;}
+
+/* 卡片网格 */
+.grid{display:grid;gap:20px;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(27,31,59,.08);border-color:#cfd5ec;}
+.card-icon{
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  margin-bottom:16px;
+}
+.card h3{font-size:17.5px;font-weight:800;margin-bottom:8px;}
+.card p{font-size:14.8px;color:var(--ink-soft);}
+.card .tag-row{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
+.tag{
+  font-size:12.5px;padding:3px 10px;border-radius:999px;
+  background:#f0f2fb;color:var(--ink-soft);font-weight:600;
+}
+
+/* 剧集列表 */
+.drama-list{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.drama{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;transition:transform .2s,box-shadow .2s;
+}
+.drama:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(27,31,59,.09);}
+.drama-poster{
+  aspect-ratio:3/4;position:relative;
+  display:grid;place-items:center;
+}
+.drama-poster span{
+  font-size:13px;font-weight:800;color:#fff;letter-spacing:1px;
+  background:rgba(27,31,59,.32);padding:5px 12px;border-radius:999px;
+  backdrop-filter:blur(4px);
+}
+.drama-body{padding:14px 15px 16px;}
+.drama-body h3{font-size:15.5px;font-weight:800;margin-bottom:4px;}
+.drama-body p{font-size:13px;color:var(--muted);line-height:1.6;}
+.drama-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:10px;font-size:12.5px;color:var(--rose-deep);font-weight:700;
+}
+
+/* 筛选 */
+.filter-bar{
+  display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;
+  align-items:center;
+}
+.filter-bar label{font-size:14px;font-weight:700;color:var(--ink-soft);}
+.chip{
+  border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+  padding:7px 16px;border-radius:999px;font-size:14px;font-weight:600;
+  cursor:pointer;transition:all .18s;font-family:inherit;
+}
+.chip:hover{border-color:#c9cfe8;}
+.chip.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+.search-box{
+  margin-left:auto;display:flex;gap:8px;
+}
+.search-box input{
+  font-family:inherit;font-size:14px;padding:8px 14px;border-radius:10px;
+  border:1px solid var(--line);background:#fff;color:var(--ink);
+  width:200px;outline:none;transition:border-color .18s;
+}
+.search-box input:focus{border-color:var(--rose);}
+.search-box button{
+  font-family:inherit;font-size:14px;font-weight:700;padding:8px 16px;
+  border-radius:10px;border:none;background:var(--rose);color:#fff;cursor:pointer;
+}
+.no-result{
+  display:none;padding:22px;text-align:center;color:var(--muted);
+  background:#fff;border:1px dashed var(--line);border-radius:12px;font-size:14.5px;
+}
+
+/* 观看说明 */
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.step{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;position:relative;
+}
+.step::before{
+  counter-increment:step;content:"0" counter(step);
+  font-size:26px;font-weight:900;color:var(--gold);
+  line-height:1;display:block;margin-bottom:12px;
+}
+.step h3{font-size:16.5px;font-weight:800;margin-bottom:6px;}
+.step p{font-size:14.5px;color:var(--ink-soft);}
+
+/* 问答 */
+.faq{display:grid;gap:14px;}
+.faq details{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:16px 20px;
+}
+.faq summary{
+  cursor:pointer;font-weight:700;font-size:15.5px;color:var(--ink);
+  list-style:none;display:flex;justify-content:space-between;gap:12px;
+}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--rose);font-weight:900;font-size:18px;line-height:1;}
+.faq details[open] summary::after{content:"–";}
+.faq details p{margin-top:10px;font-size:14.8px;color:var(--ink-soft);}
+
+/* 下载区 */
+.download-band{
+  background:var(--ink);border-radius:24px;color:#fff;
+  padding:40px clamp(24px,4vw,48px);
+  display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;
+}
+.download-band h2{font-size:clamp(20px,2.4vw,26px);font-weight:800;line-height:1.4;}
+.download-band p{font-size:14.8px;color:#c3c8e4;margin-top:8px;max-width:36em;}
+.btn-download{
+  background:var(--gold);color:var(--ink);
+  padding:13px 30px;border-radius:11px;font-weight:800;font-size:15px;
+  pointer-events:none;opacity:.95;display:inline-flex;align-items:center;gap:8px;
+}
+
+/* 页尾 */
+.site-footer{
+  background:#fff;border-top:1px solid var(--line);
+  padding:42px 0 30px;margin-top:56px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;
+  padding-bottom:28px;border-bottom:1px solid var(--line);
+}
+.footer-brand p{font-size:14px;color:var(--muted);margin-top:12px;max-width:30em;}
+.footer-col h4{font-size:14px;font-weight:800;margin-bottom:12px;color:var(--ink);}
+.footer-col a{display:block;font-size:14px;color:var(--muted);padding:4px 0;transition:color .18s;}
+.footer-col a:hover{color:var(--rose-deep);}
+.copyright{padding-top:20px;font-size:13px;color:var(--muted);text-align:center;}
+
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:32px;}
+  .hero-art{max-width:440px;}
+  .drama-list{grid-template-columns:repeat(2,1fr);}
+  .grid-3,.steps{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:720px){
+  .header-inner{height:auto;padding:12px 0;flex-wrap:wrap;gap:10px;}
+  .brand-text{font-size:15px;white-space:normal;line-height:1.35;}
+  .main-nav{margin-left:0;width:100%;order:3;}
+  .main-nav ul{justify-content:flex-start;}
+  .main-nav a{padding:7px 10px;font-size:13.5px;}
+  .nav-cta{margin-left:auto;padding:8px 14px;font-size:13.5px;}
+  .hero{padding:36px 0 34px;}
+  .section{padding:40px 0;}
+  .grid-3,.grid-2,.steps{grid-template-columns:1fr;}
+  .search-box{width:100%;margin-left:0;}
+  .search-box input{flex:1;width:auto;}
+  .footer-grid{grid-template-columns:1fr;}
+  .download-band{padding:30px 22px;}
+  .btn-download{width:100%;justify-content:center;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="返回首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect x="2.5" y="5" width="19" height="14" rx="3" stroke="#ff5d73" stroke-width="2"></rect>
+          <path d="M10 9.5l5 2.5-5 2.5z" fill="#ffd166"></path>
+        </svg>
+      </span>
+      <span class="brand-text">韩剧免费大片在线观看</span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <ul>
+        <li><a href="#topics">题材分类</a></li>
+        <li><a href="#library">剧集片库</a></li>
+        <li><a href="#how">观看指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="#library">进入片库</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge"><span class="dot"></span>韩剧片库 · 分类与观看路径整理</span>
+        <h1>韩剧免费大片在线观看</h1>
+        <p class="hero-lead">
+          这里把韩国电视剧按题材、热度和观看方式重新整理，帮助你在“韩剧免费大片在线观看”这件事上少走弯路。页面提供题材分区、片库筛选、观看步骤与常见问题，所有内容以静态页面直接呈现，打开即可阅读与检索。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#library">
+            浏览剧集片库
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+          <a class="btn btn-ghost" href="#how">了解观看步骤</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>4</strong><span>题材分区</span></div>
+          <div><strong>8</strong><span>片库示例条目</span></div>
+          <div><strong>3</strong><span>观看步骤说明</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 320" role="img">
+          <rect width="420" height="320" rx="16" fill="#1b1f3b"></rect>
+          <circle cx="352" cy="58" r="70" fill="#ff5d73" opacity="0.28"></circle>
+          <circle cx="60" cy="272" r="86" fill="#2ec4b6" opacity="0.22"></circle>
+          <rect x="42" y="66" width="336" height="188" rx="12" fill="#242a4d" stroke="#3a4170" stroke-width="2"></rect>
+          <rect x="42" y="66" width="336" height="30" rx="12" fill="#2e3560"></rect>
+          <circle cx="62" cy="81" r="4.5" fill="#ff5d73"></circle>
+          <circle cx="78" cy="81" r="4.5" fill="#ffd166"></circle>
+          <circle cx="94" cy="81" r="4.5" fill="#2ec4b6"></circle>
+          <circle cx="210" cy="160" r="38" fill="#ffd166" opacity="0.95"></circle>
+          <path d="M198 142l30 18-30 18z" fill="#1b1f3b"></path>
+          <rect x="70" y="212" width="120" height="9" rx="4.5" fill="#3a4170"></rect>
+          <rect x="70" y="230" width="78" height="9" rx="4.5" fill="#323a66"></rect>
+          <rect x="290" y="212" width="60" height="9" rx="4.5" fill="#3a4170"></rect>
+          <rect x="42" y="270" width="336" height="10" rx="5" fill="#2e3560"></rect>
+          <rect x="42" y="270" width="150" height="10" rx="5" fill="#ff5d73"></rect>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="topics">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">题材分区</span>
+        <h2>按题材找到想看的韩剧</h2>
+        <p>不同观众进入韩剧免费大片在线观看的需求并不相同：有人追爱情线，有人看悬疑反转，也有人只想找一部轻松的日常剧。以下分区按题材组织，方便先定方向再进片库。</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-icon" style="background:#fff0f2;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.3A4.2 4.2 0 0 1 12 7a4.2 4.2 0 0 1 7 3.7C19 15.6 12 20 12 20z" stroke="#ff5d73" stroke-width="2" stroke-linejoin="round"></path></svg>
+          </div>
+          <h3>爱情与都市</h3>
+          <p>以感情线推进为主的剧集，节奏偏慢，适合连续追看。选择时可先看集数与更新状态，再决定是否开追。</p>
+          <div class="tag-row"><span class="tag">浪漫</span><span class="tag">都市</span><span class="tag">职场</span></div>
+        </article>
+        <article class="card">
+          <div class="card-icon" style="background:#eef7f6;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="#2ec4b6" stroke-width="2"></circle><path d="M16 16l4 4" stroke="#2ec4b6" stroke-width="2" stroke-linecap="round"></path></svg>
+          </div>
+          <h3>悬疑与犯罪</h3>
+          <p>依赖线索铺陈与反转设计，单集信息量大。建议从短篇开始，避免同时追多部导致线索混淆。</p>
+          <div class="tag-row"><span class="tag">推理</span><span class="tag">犯罪</span><span class="tag">反转</span></div>
+        </article>
+        <article class="card">
+          <div class="card-icon" style="background:#fff8e6;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 18V9M10 18V5M16 18v-6M22 18H2" stroke="#e0a800" stroke-width="2" stroke-linecap="round"></path></svg>
+          </div>
+          <h3>家庭与日常</h3>
+          <p>篇幅往往较长，重在人物关系与生活细节。适合碎片时间观看，对连续性的要求相对低。</p>
+          <div class="tag-row"><span class="tag">家庭</span><span class="tag">治愈</span><span class="tag">生活</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="library" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">剧集片库</span>
+        <h2>片库示例条目与筛选</h2>
+        <p>下列条目用于说明片库的组织方式，按题材标签归类和检索。你可以用标签或片名关键词缩小范围，再进入对应剧集页面查看详情。</p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="片库筛选">
+        <label for="dramaSearch">筛选：</label>
+        <button class="chip active" data-filter="all" type="button">全部</button>
+        <button class="chip" data-filter="爱情" type="button">爱情</button>
+        <button class="chip" data-filter="悬疑" type="button">悬疑</button>
+        <button class="chip" data-filter="家庭" type="button">家庭</button>
+        <div class="search-box">
+          <input id="dramaSearch" type="search" placeholder="输入片名关键词" aria-label="按片名关键词搜索">
+          <button type="button" id="searchBtn">搜索</button>
+        </div>
+      </div>
+
+      <div class="drama-list" id="dramaList">
+        <article class="drama" data-tags="爱情 都市">
+          <div class="drama-poster" style="background:linear-gradient(150deg,#ff8fa3,#ff5d73 70%);"><span>爱情 · 都市</span></div>
+          <div class="drama-body">
+            <h3>春日来信</h3>
+            <p>职场重逢题材，感情线推进平稳，适合连续观看。</p>
+            <div class="drama-meta"><span>16 集</span><span>已完结</span></div>
+          </div>
+        </article>
+        <article class="drama" data-tags="悬疑 犯罪">
+          <div class="drama-poster" style="background:linear-gradient(150deg,#4b5aa8,#242a4d 70%);"><span>悬疑 · 犯罪</span></div>
+          <div class="drama-body">
+            <h3>无声证词</h3>
+            <p>以案件线索串联全剧，单集信息密度较高。</p>
+            <div class="drama-meta"><span>12 集</span><span>已完结</span></div>
+          </div>
+        </article>
+        <article class="drama" data-tags="家庭 治愈">
+          <div class="drama-poster" style="background:linear-gradient(150deg,#7fd3c8,#2ec4b6 70%);"><span>家庭 · 治愈</span></div>
+          <div class="drama-body">
+            <h3>巷口的日子</h3>
+            <p>以邻里关系为主线，节奏舒缓，适合碎片时间。</p>
+            <div class="drama-meta"><span>24 集</span><span>连载中</span></div>
+          </div>
+        </article>
+        <article class="drama" data-tags="爱情 职场">
+          <div class="drama-poster" style="background:linear-gradient(150deg,#ffc27a,#f59f45 70%);"><span>爱情 · 职场</span></div>
+          <div class="drama-body">
+            <h3>午夜编辑部</h3>
+            <p>围绕出版行业展开，人物关系与工作线并行。</p>
+            <div class="drama-meta"><span>14 集</span><span>已完结</span></div>
+          </div>
+        </article>
+        <article class="drama" data-tags="悬疑 反转">
+          <div class="drama-poster" style="background:linear-gradient(150deg,#8a6fc4,#5b3fa0 70%);"><span>悬疑 · 反转</span></div>
+          <div class="drama-body">
+            <h3>第七个证人</h3>
+            <p>多视角叙事，后半段集中回收前期伏笔。</p>
+            <div class="drama-meta"><span>10 集</span><span>已完结</span></div>
+          </div>
+        </article>
+        <article class="drama" data-tags="家庭 生活">
+          <div class="drama-poster" style="background:linear-gradient(150deg,#a8b6e8,#6d7fc4 70%);"><span>家庭 · 生活</span></div>
+          <div class="drama-body">
+            <h3>三代人的餐桌</h3>
+            <p>以家庭聚餐为切口，展开代际观念的差异。</p>
+            <div class="drama-meta"><span>32 集</span><span>连载中</span></div>
+          </div>
+        </article>
+        <article class="drama" data-tags="爱情 浪漫">
+          <div class="drama-poster" style="background:linear-gradient(150deg,#f7a8c4,#e2455b 70%);"><span>爱情 · 浪漫</span></div>
+          <div class="drama-body">
+            <h3>海边公寓</h3>
+            <p>轻喜剧基调，单元式情节，入坑门槛较低。</p>
+            <div class="drama-meta"><span>16 集</span><span>已完结</span></div>
+          </div>
+        </article>
+        <article class="drama" data-tags="悬疑 犯罪">
+          <div class="drama-poster" style="background:linear-gradient(150deg,#5c6b8a,#2f3a52 70%);"><span>悬疑 · 犯罪</span></div>
+          <div class="drama-body">
+            <h3>凌晨三点的电话</h3>
+            <p>围绕一通来电展开，时间线交错，需要专注观看。</p>
+            <div class="drama-meta"><span>8 集</span><span>已完结</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="no-result" id="noResult">没有匹配的条目，试试更换标签或缩短关键词。</p>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">观看指南</span>
+        <h2>从选剧到开看的三个步骤</h2>
+        <p>韩剧免费大片在线观看的关键不在于找到入口，而在于先确认剧集状态与自己的时间安排，避免追到一半才发现未完结或篇幅过长。</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <h3>先定题材与篇幅</h3>
+          <p>按爱情、悬疑、家庭等标签缩小范围，再查看总集数与更新状态。短篇适合集中观看，长剧更适合分段推进。</p>
+        </article>
+        <article class="step">
+          <h3>核对剧集信息</h3>
+          <p>进入剧集页后确认集数、连载状态与简介，判断是否符合预期。信息不完整的条目可先收藏，等更新后再看。</p>
+        </article>
+        <article class="step">
+          <h3>按节奏安排追剧</h3>
+          <p>已完结剧集可自由安排进度；连载中的剧集建议固定时间观看，减少等待带来的断层感。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" style="background:#fff;border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">常见问题</span>
+        <h2>关于韩剧免费大片在线观看的疑问</h2>
+        <p>以下问题来自访问者在选剧和观看过程中最常见的关注点，回答以页面实际提供的内容为准。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>页面上的剧集条目是完整片库吗？</summary>
+          <p>不是。当前展示的是用于说明片库组织方式的示例条目，按题材标签归类并支持筛选与关键词检索。片库会随内容整理逐步补充，具体以页面实际列出的条目为准。</p>
+        </details>
+        <details>
+          <summary>如何快速找到某一类韩剧？</summary>
+          <p>可在片库区点击“爱情”“悬疑”“家庭”等标签筛选，也可以在搜索框输入片名关键词。两种方式可以配合使用：先选标签缩小范围，再用关键词精确定位。</p>
+        </details>
+        <details>
+          <summary>连载中的剧集适合现在开始看吗？</summary>
+          <p>取决于你的观看习惯。连载剧需要等待更新，适合能接受间隔的观众；如果希望一次看完，建议优先选择标注“已完结”的条目。</p>
+        </details>
+        <details>
+          <summary>为什么有些条目信息比较简短？</summary>
+          <p>条目信息以已整理的内容为准，简介只保留题材、篇幅与状态等关键项。信息越完整的条目，越便于判断是否值得开追。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="download-band">
+        <div>
+          <h2>保存一份观看清单</h2>
+          <p>把想看的韩剧免费大片整理成清单，方便按题材和篇幅安排追剧顺序。下载入口仍在准备中，开放后可直接获取清单文件。</p>
+        </div>
+        <a class="btn-download" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 19h16" stroke="#1b1f3b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="2.5" y="5" width="19" height="14" rx="3" stroke="#ff5d73" stroke-width="2"></rect>
+              <path d="M10 9.5l5 2.5-5 2.5z" fill="#ffd166"></path>
+            </svg>
+          </span>
+          <span class="brand-text">韩剧免费大片在线观看</span>
+        </a>
+        <p>围绕韩剧免费大片在线观看整理题材分区、片库条目与观看步骤，帮助访问者按需选剧、按节奏追剧。</p>
+      </div>
+      <div class="footer-col">
+        <h4>站内导航</h4>
+        <a href="#topics">题材分类</a>
+        <a href="#library">剧集片库</a>
+        <a href="#how">观看指南</a>
+        <a href="#faq">常见问题</a>
+      </div>
+      <div class="footer-col">
+        <h4>内容说明</h4>
+        <a href="#library">片库示例条目</a>
+        <a href="#how">三步观看流程</a>
+        <a href="#faq">条目信息说明</a>
+      </div>
+    </div>
+    <p class="copyright">© 2025 韩剧免费大片在线观看 · 内容以页面实际整理为准</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var cards = document.querySelectorAll('#dramaList .drama');
+  var input = document.getElementById('dramaSearch');
+  var searchBtn = document.getElementById('searchBtn');
+  var noResult = document.getElementById('noResult');
+  var currentFilter = 'all';
+
+  function apply(){
+    var kw = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card){
+      var tags = card.getAttribute('data-tags') || '';
+      var title = card.querySelector('h3').textContent.toLowerCase();
+      var okTag = currentFilter === 'all' || tags.indexOf(currentFilter) > -1;
+      var okKw = !kw || title.indexOf(kw) > -1 || tags.toLowerCase().indexOf(kw) > -1;
+      var ok = okTag && okKw;
+      card.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    noResult.style.display = shown === 0 ? 'block' : 'none';
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      currentFilter = chip.getAttribute('data-filter');
+      apply();
+    });
+  });
+
+  searchBtn.addEventListener('click', apply);
+  input.addEventListener('input', apply);
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); apply(); }
+  });
+})();
+</script>
+</body>
+            </html>
