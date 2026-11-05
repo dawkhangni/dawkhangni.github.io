@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>樱花动漫专注动漫的网站专注动漫的门户-在线动漫观看_新番追更_动漫分类检索</title>
+<meta name="description" content="樱花动漫专注动漫的网站专注动漫的门户首页，汇集新番追更、番剧分类检索、热播榜单与追番收藏入口，为动漫爱好者提供集中、清晰的观看与查找路径。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f7c8d8'/%3E%3Cg fill='%23e2568b'%3E%3Cellipse cx='32' cy='14' rx='6' ry='9'/%3E%3Cellipse cx='32' cy='50' rx='6' ry='9'/%3E%3Cellipse cx='14' cy='32' rx='9' ry='6'/%3E%3Cellipse cx='50' cy='32' rx='9' ry='6'/%3E%3Cellipse cx='19' cy='19' rx='7' ry='5' transform='rotate(-45 19 19)'/%3E%3Cellipse cx='45' cy='45' rx='7' ry='5' transform='rotate(-45 45 45)'/%3E%3Cellipse cx='45' cy='19' rx='7' ry='5' transform='rotate(45 45 19)'/%3E%3Cellipse cx='19' cy='45' rx='7' ry='5' transform='rotate(45 19 45)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='7' fill='%23fff6da'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#2b2230;
+    --ink-soft:#5d5263;
+    --pink:#e2568b;
+    --pink-deep:#c03a6e;
+    --pink-pale:#fdeef4;
+    --cream:#fffaf5;
+    --line:#f0dfe7;
+    --card:#ffffff;
+    --shadow:0 8px 24px rgba(160,80,110,.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{width:min(1120px,92vw);margin:0 auto;}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,250,245,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{
+    display:flex;align-items:center;gap:20px;
+    padding:12px 0;flex-wrap:wrap;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-weight:800;font-size:15px;line-height:1.35;
+    color:var(--pink-deep);
+    max-width:420px;
+  }
+  .logo .mark{flex:0 0 38px;width:38px;height:38px;}
+  nav.main{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap;}
+  nav.main a{
+    padding:7px 12px;border-radius:999px;
+    font-size:14px;color:var(--ink-soft);
+    transition:.2s;
+  }
+  nav.main a:hover,nav.main a:focus-visible{background:var(--pink-pale);color:var(--pink-deep);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#fff3f8 0%,#fffaf5 55%,#fdf1e6 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:40px;
+    align-items:center;padding:56px 0 60px;
+  }
+  .hero h1{
+    font-size:clamp(24px,3.4vw,40px);
+    line-height:1.32;margin:0 0 16px;
+    letter-spacing:.5px;font-weight:800;
+  }
+  .hero h1 .hl{color:var(--pink-deep);}
+  .hero p.lead{
+    margin:0 0 24px;font-size:16px;color:var(--ink-soft);
+    max-width:34em;
+  }
+  .cta{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:999px;font-size:15px;font-weight:600;
+    border:1px solid transparent;transition:.2s;
+  }
+  .btn-primary{background:var(--pink);color:#fff;box-shadow:0 6px 18px rgba(226,86,139,.32);}
+  .btn-primary:hover,.btn-primary:focus-visible{background:var(--pink-deep);}
+  .btn-ghost{background:#fff;color:var(--pink-deep);border-color:var(--line);}
+  .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--pink);}
+  .btn[aria-disabled="true"]{pointer-events:none;}
+  .hero-art{
+    background:#fff;border:1px solid var(--line);border-radius:26px;
+    padding:18px;box-shadow:var(--shadow);
+  }
+  .hero-art svg{width:100%;height:auto;}
+
+  /* ---------- section base ---------- */
+  section{padding:52px 0;}
+  .sec-head{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:26px;}
+  .sec-head h2{
+    font-size:clamp(19px,2.4vw,25px);margin:0;font-weight:800;letter-spacing:.4px;
+  }
+  .sec-head h2::before{
+    content:"";display:inline-block;width:6px;height:1em;
+    background:var(--pink);border-radius:3px;margin-right:10px;
+    vertical-align:-2px;
+  }
+  .sec-head .note{margin:0;color:var(--ink-soft);font-size:14px;}
+
+  /* ---------- search & filter ---------- */
+  .search-panel{
+    background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:20px;box-shadow:var(--shadow);
+  }
+  .search-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .search-row input{
+    flex:1 1 240px;min-width:0;
+    padding:12px 16px;border-radius:999px;
+    border:1px solid var(--line);background:var(--cream);
+    font-size:15px;color:var(--ink);font-family:inherit;
+  }
+  .search-row input:focus{outline:2px solid var(--pink);outline-offset:1px;background:#fff;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .chip{
+    padding:7px 16px;border-radius:999px;font-size:14px;cursor:pointer;
+    border:1px solid var(--line);background:var(--cream);color:var(--ink-soft);
+    font-family:inherit;transition:.2s;
+  }
+  .chip:hover{border-color:var(--pink);color:var(--pink-deep);}
+  .chip[aria-pressed="true"]{background:var(--pink);border-color:var(--pink);color:#fff;}
+  .filter-hint{margin:14px 0 0;font-size:13px;color:var(--ink-soft);}
+
+  /* ---------- cards ---------- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:22px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:10px;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(160,80,110,.15);}
+  .card .tag{
+    align-self:flex-start;font-size:12px;letter-spacing:.5px;
+    background:var(--pink-pale);color:var(--pink-deep);
+    padding:3px 10px;border-radius:999px;font-weight:600;
+  }
+  .card h3{margin:0;font-size:17px;font-weight:700;}
+  .card p{margin:0;font-size:14px;color:var(--ink-soft);}
+  .card .meta{font-size:13px;color:#8d7f93;margin-top:auto;}
+
+  /* ---------- ranking list ---------- */
+  .rank{
+    background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:8px 22px;box-shadow:var(--shadow);
+  }
+  .rank ol{list-style:none;margin:0;padding:0;counter-reset:rk;}
+  .rank li{
+    counter-increment:rk;
+    display:flex;align-items:center;gap:14px;
+    padding:15px 0;border-bottom:1px dashed var(--line);
+    font-size:15px;
+  }
+  .rank li:last-child{border-bottom:0;}
+  .rank li::before{
+    content:counter(rk);
+    flex:0 0 28px;height:28px;border-radius:8px;
+    display:grid;place-items:center;
+    font-size:13px;font-weight:700;
+    background:var(--pink-pale);color:var(--pink-deep);
+  }
+  .rank li:nth-child(-n+3)::before{background:var(--pink);color:#fff;}
+  .rank .name{font-weight:600;}
+  .rank .desc{margin-left:auto;font-size:13px;color:var(--ink-soft);text-align:right;}
+
+  /* ---------- about / text blocks ---------- */
+  .two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start;}
+  .prose p{margin:0 0 16px;font-size:15.5px;color:var(--ink-soft);}
+  .prose p strong{color:var(--ink);}
+  .side-box{
+    background:linear-gradient(165deg,#fff3f8,#fffaf5);
+    border:1px solid var(--line);border-radius:20px;padding:24px;
+  }
+  .side-box h3{margin:0 0 12px;font-size:16px;color:var(--pink-deep);}
+  .side-box ul{margin:0;padding-left:20px;font-size:14px;color:var(--ink-soft);}
+  .side-box li{margin-bottom:8px;}
+
+  /* ---------- steps ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .step{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:22px;box-shadow:var(--shadow);
+  }
+  .step .num{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--pink);color:#fff;font-weight:700;font-size:15px;
+    display:grid;place-items:center;margin-bottom:12px;
+  }
+  .step h3{margin:0 0 8px;font-size:16px;}
+  .step p{margin:0;font-size:14px;color:var(--ink-soft);}
+
+  /* ---------- footer ---------- */
+  footer.site{
+    background:#2b2230;color:#e9dfe9;margin-top:20px;
+    padding:40px 0 28px;
+  }
+  footer.site .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;}
+  footer .brand{font-weight:700;font-size:14px;line-height:1.6;color:#ffd9e7;max-width:300px;}
+  footer h4{margin:0 0 10px;font-size:14px;color:#fff;}
+  footer ul{list-style:none;margin:0;padding:0;font-size:13.5px;}
+  footer li{margin-bottom:7px;}
+  footer a:hover{color:#ffb6d2;}
+  .copy{
+    border-top:1px solid rgba(255,255,255,.12);
+    margin-top:28px;padding-top:18px;
+    font-size:12.5px;color:#b3a5b8;text-align:center;
+  }
+
+  /* ---------- responsive ---------- */
+  @media(max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;padding:38px 0 44px;gap:28px;}
+    .hero-art{order:-1;max-width:420px;}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:1fr;}
+    .two-col{grid-template-columns:1fr;gap:24px;}
+    footer.site .wrap{grid-template-columns:1fr;gap:24px;}
+  }
+  @media(max-width:620px){
+    .bar{gap:10px;}
+    .logo{font-size:13.5px;max-width:260px;}
+    nav.main{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px;}
+    nav.main a{white-space:nowrap;font-size:13px;padding:6px 10px;}
+    .hero .wrap{padding:30px 0 36px;}
+    .grid{grid-template-columns:1fr;}
+    section{padding:40px 0;}
+    .rank{padding:4px 16px;}
+    .rank li{flex-wrap:wrap;gap:8px;}
+    .rank .desc{margin-left:0;width:100%;text-align:left;}
+    .btn{padding:11px 18px;font-size:14px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="樱花动漫专注动漫的网站专注动漫的门户 首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#fdeef4"/>
+        <g fill="#e2568b">
+          <ellipse cx="32" cy="14" rx="6" ry="9"/>
+          <ellipse cx="32" cy="50" rx="6" ry="9"/>
+          <ellipse cx="14" cy="32" rx="9" ry="6"/>
+          <ellipse cx="50" cy="32" rx="9" ry="6"/>
+          <ellipse cx="19" cy="19" rx="7" ry="5" transform="rotate(-45 19 19)"/>
+          <ellipse cx="45" cy="45" rx="7" ry="5" transform="rotate(-45 45 45)"/>
+          <ellipse cx="45" cy="19" rx="7" ry="5" transform="rotate(45 45 19)"/>
+          <ellipse cx="19" cy="45" rx="7" ry="5" transform="rotate(45 19 45)"/>
+        </g>
+        <circle cx="32" cy="32" r="7" fill="#fff6da"/>
+      </svg>
+      <span>樱花动漫专注动漫的网站专注动漫的门户</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#find">番剧检索</a>
+      <a href="#newest">新番追更</a>
+      <a href="#rank">热播榜单</a>
+      <a href="#guide">观看指南</a>
+      <a href="#about">关于本站</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title">樱花动漫<span class="hl">专注动漫的网站</span>专注动漫的门户</h1>
+        <p class="lead">这里把新番、番剧分类和热播榜单放在同一处：按季追更、按类型查找、按榜单发现，几步之内就能找到想看的作品。樱花动漫专注动漫的网站专注动漫的门户，围绕动漫观众最常用的观看路径组织内容。</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#find">开始检索番剧</a>
+          <a class="btn btn-ghost" href="#newest">查看本季新番</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 300" role="presentation">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffe3ee"/>
+              <stop offset="1" stop-color="#fffaf5"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="420" height="300" rx="18" fill="url(#sky)"/>
+          <circle cx="330" cy="70" r="34" fill="#fff6da"/>
+          <g fill="#f7c8d8">
+            <circle cx="70" cy="60" r="26"/>
+            <circle cx="100" cy="52" r="32"/>
+            <circle cx="132" cy="62" r="24"/>
+          </g>
+          <g fill="#e2568b">
+            <ellipse cx="210" cy="120" rx="9" ry="14"/>
+            <ellipse cx="210" cy="176" rx="9" ry="14"/>
+            <ellipse cx="182" cy="148" rx="14" ry="9"/>
+            <ellipse cx="238" cy="148" rx="14" ry="9"/>
+            <ellipse cx="191" cy="129" rx="11" ry="8" transform="rotate(-45 191 129)"/>
+            <ellipse cx="229" cy="167" rx="11" ry="8" transform="rotate(-45 229 167)"/>
+            <ellipse cx="229" cy="129" rx="11" ry="8" transform="rotate(45 229 129)"/>
+            <ellipse cx="191" cy="167" rx="11" ry="8" transform="rotate(45 191 167)"/>
+          </g>
+          <circle cx="210" cy="148" r="11" fill="#fff6da"/>
+          <rect x="60" y="220" width="300" height="46" rx="12" fill="#ffffff" stroke="#f0dfe7"/>
+          <rect x="78" y="236" width="86" height="9" rx="4.5" fill="#e2568b"/>
+          <rect x="176" y="236" width="60" height="9" rx="4.5" fill="#f7c8d8"/>
+          <rect x="248" y="236" width="96" height="9" rx="4.5" fill="#f7c8d8"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIND -->
+  <section id="find" aria-labelledby="find-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="find-title">番剧检索</h2>
+        <p class="note">输入片名关键词，或按类型快速筛选</p>
+      </div>
+      <div class="search-panel">
+        <div class="search-row">
+          <label for="q" style="position:absolute;left:-9999px;">搜索番剧名称</label>
+          <input id="q" type="search" placeholder="输入番剧名称，例如：少女、冒险、运动…" autocomplete="off">
+          <button class="btn btn-primary" type="button" id="qBtn">搜索</button>
+        </div>
+        <div class="chips" role="group" aria-label="番剧类型筛选">
+          <button class="chip" type="button" data-tag="热血" aria-pressed="false">热血</button>
+          <button class="chip" type="button" data-tag="恋爱" aria-pressed="false">恋爱</button>
+          <button class="chip" type="button" data-tag="奇幻" aria-pressed="false">奇幻</button>
+          <button class="chip" type="button" data-tag="日常" aria-pressed="false">日常</button>
+          <button class="chip" type="button" data-tag="运动" aria-pressed="false">运动</button>
+          <button class="chip" type="button" data-tag="悬疑" aria-pressed="false">悬疑</button>
+          <button class="chip" type="button" data-tag="" aria-pressed="true">全部</button>
+        </div>
+        <p class="filter-hint" id="hint" aria-live="polite">当前显示全部 6 部示例条目。</p>
+      </div>
+
+      <div class="grid" id="cards" style="margin-top:24px;">
+        <article class="card" data-tags="热血 奇幻">
+          <span class="tag">热血 · 奇幻</span>
+          <h3>少年与剑的远征</h3>
+          <p>少年为追寻失落的剑技踏上旅途，一路结识同伴，也一路面对自己的怯意。适合想看成长主线的观众。</p>
+          <p class="meta">连载中 · 每周更新</p>
+        </article>
+        <article class="card" data-tags="恋爱 日常">
+          <span class="tag">恋爱 · 日常</span>
+          <h3>放学后的天台</h3>
+          <p>两名同班同学因为一次值日安排开始有了交集，故事在教室、走廊与天台之间慢慢展开。</p>
+          <p class="meta">已完结 · 12 话</p>
+        </article>
+        <article class="card" data-tags="奇幻 悬疑">
+          <span class="tag">奇幻 · 悬疑</span>
+          <h3>雾中的图书馆</h3>
+          <p>一座只在雾天出现的图书馆，藏书里写着尚未发生的事。主角需要在借阅期限前找出真相。</p>
+          <p class="meta">连载中 · 每周更新</p>
+        </article>
+        <article class="card" data-tags="运动">
+          <span class="tag">运动</span>
+          <h3>最后一棒</h3>
+          <p>校田径队接力项目长期缺人，新加入的转学生并不擅长短跑，却成了队伍里最难替代的一环。</p>
+          <p class="meta">已完结 · 24 话</p>
+        </article>
+        <article class="card" data-tags="日常 恋爱">
+          <span class="tag">日常 · 恋爱</span>
+          <h3>面包店的三点一刻</h3>
+          <p>每天下午三点一刻，面包店会迎来同一位客人。店员与客人之间，慢慢有了不需要点单的默契。</p>
+          <p class="meta">连载中 · 每周更新</p>
+        </article>
+        <article class="card" data-tags="热血 运动">
+          <span class="tag">热血 · 运动</span>
+          <h3>球场上的第二阵风</h3>
+          <p>一支成绩平平的球队在更换教练后重新调整打法，比赛之外的磨合同样占据了大量篇幅。</p>
+          <p class="meta">已完结 · 26 话</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWEST -->
+  <section id="newest" aria-labelledby="newest-title" style="background:#fff7fa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="newest-title">新番追更</h2>
+        <p class="note">按更新节奏安排的追番入口</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="tag">周一更新</span>
+          <h3>少年与剑的远征</h3>
+          <p>本周推进至旅途第二站，主角第一次独自应对战斗，队伍分工也随之调整。</p>
+          <p class="meta">追番人数较多 · 建议先看前两话</p>
+        </article>
+        <article class="card">
+          <span class="tag">周三更新</span>
+          <h3>雾中的图书馆</h3>
+          <p>连载进入线索收束阶段，前几话埋下的借阅记录开始互相呼应。</p>
+          <p class="meta">适合喜欢推理结构的观众</p>
+        </article>
+        <article class="card">
+          <span class="tag">周六更新</span>
+          <h3>面包店的三点一刻</h3>
+          <p>单元式日常继续，本话围绕雨天客流展开，节奏偏舒缓。</p>
+          <p class="meta">短篇友好 · 可随时补番</p>
+        </article>
+      </div>
+      <p style="margin:22px 0 0;font-size:14px;color:var(--ink-soft);">追更时建议先确认作品所属季度与更新日，再决定是否从第一话补起。樱花动漫专注动漫的网站专注动漫的门户把“季度—更新日—话数”三个信息并列展示，方便安排观看顺序。</p>
+    </div>
+  </section>
+
+  <!-- RANK -->
+  <section id="rank" aria-labelledby="rank-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="rank-title">热播榜单</h2>
+        <p class="note">根据站内收藏与观看入口整理，每日查看</p>
+      </div>
+      <div class="rank">
+        <ol>
+          <li><span class="name">少年与剑的远征</span><span class="desc">热血 · 连载中</span></li>
+          <li><span class="name">雾中的图书馆</span><span class="desc">奇幻 · 连载中</span></li>
+          <li><span class="name">最后一棒</span><span class="desc">运动 · 已完结</span></li>
+          <li><span class="name">放学后的天台</span><span class="desc">恋爱 · 已完结</span></li>
+          <li><span class="name">面包店的三点一刻</span><span class="desc">日常 · 连载中</span></li>
+          <li><span class="name">球场上的第二阵风</span><span class="desc">运动 · 已完结</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section id="guide" aria-labelledby="guide-title" style="background:#fff7fa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="guide-title">观看指南</h2>
+        <p class="note">从查找到追更的三步路径</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>先定位类型</h3>
+          <p>不确定看什么时，先用类型标签缩小范围，再结合榜单排序判断热度与口碑方向。</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>核对更新信息</h3>
+          <p>确认连载状态、话数总量与更新日，避免从中间话数开始观看造成理解断层。</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>建立追番清单</h3>
+          <p>把在追作品按更新日排开，形成固定节奏，补番与追更互不干扰。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="wrap two-col">
+      <div class="prose">
+        <div class="sec-head">
+          <h2 id="about-title">关于本站</h2>
+        </div>
+        <p><strong>樱花动漫专注动漫的网站专注动漫的门户</strong>的定位很直接：做动漫观众进入作品之前的整理页。首页把检索、追更、榜单与指南四类信息并列，减少在多个页面之间来回跳转的时间。</p>
+        <p>检索区支持片名关键词与类型标签两种方式，示例条目覆盖热血、恋爱、奇幻、日常、运动与悬疑六类常见方向。榜单区按站内收藏与观看入口整理，用于判断近期关注度，而不是对作品质量下结论。</p>
+        <p>追更区按更新日排列在追作品，连载中与已完结分别标注，方便判断是否需要从第一话补起。观看指南则把“类型—更新信息—追番清单”整理成一条可重复使用的流程。</p>
+        <p>作为专注动漫的门户，本站不替观众做选择，只把选择需要的信息摆在一起：作品所属类型、连载状态、话数规模与更新节奏。樱花动漫专注动漫的网站专注动漫的门户会持续按季度维护这些条目，让查找和追更保持在同一套结构里。</p>
+        <p style="margin-top:20px;">
+          <a class="btn btn-ghost" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载追番清单模板</a>
+        </p>
+      </div>
+      <aside class="side-box">
+        <h3>本站信息说明</h3>
+        <ul>
+          <li>示例条目用于演示检索与筛选逻辑，具体作品信息以实际页面为准。</li>
+          <li>榜单按站内收藏与观看入口整理，反映关注度，不代表评分。</li>
+          <li>更新日与话数以条目内标注为准，季度更替时可能调整。</li>
+          <li>类型标签可多选叠加，用于交叉筛选。</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <p class="brand">樱花动漫专注动漫的网站专注动漫的门户</p>
+      <p style="font-size:13.5px;color:#b3a5b8;margin:10px 0 0;max-width:320px;">专注动漫的门户首页，整理番剧检索、新番追更与热播榜单，帮助动漫观众更快找到想看的作品。</p>
+    </div>
+    <div>
+      <h4>站内导航</h4>
+      <ul>
+        <li><a href="#find">番剧检索</a></li>
+        <li><a href="#newest">新番追更</a></li>
+        <li><a href="#rank">热播榜单</a></li>
+        <li><a href="#guide">观看指南</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>常用入口</h4>
+      <ul>
+        <li><a href="#about">关于本站</a></li>
+        <li><a href="#top">返回顶部</a></li>
+        <li><a href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">樱花动漫专注动漫的网站专注动漫的门户 · 页面内容以站内条目信息为准</div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('q');
+  var btn = document.getElementById('qBtn');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#cards .card'));
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var hint = document.getElementById('hint');
+  var activeTag = '';
+
+  function apply(){
+    var kw = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(c){
+      var text = c.textContent.toLowerCase();
+      var tags = (c.getAttribute('data-tags') || '');
+      var okKw = !kw || text.indexOf(kw) !== -1;
+      var okTag = !activeTag || tags.indexOf(activeTag) !== -1;
+      var ok = okKw && okTag;
+      c.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    var parts = [];
+    if(activeTag) parts.push('类型「' + activeTag + '」');
+    if(kw) parts.push('关键词「' + input.value.trim() + '」');
+    hint.textContent = parts.length
+      ? '当前筛选：' + parts.join('，') + '，共 ' + shown + ' 部条目。'
+      : '当前显示全部 ' + cards.length + ' 部示例条目。';
+  }
+
+  btn.addEventListener('click', apply);
+  input.addEventListener('input', apply);
+  input.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); apply(); } });
+
+  chips.forEach(function(ch){
+    ch.addEventListener('click', function(){
+      activeTag = ch.getAttribute('data-tag') || '';
+      chips.forEach(function(o){ o.setAttribute('aria-pressed', o === ch ? 'true' : 'false'); });
+      apply();
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
