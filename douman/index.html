@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>抖漫-抖漫在线漫画阅读平台_热门漫画推荐与免费追更</title>
+<meta name="description" content="抖漫是一个专注漫画阅读与追更的平台，汇集热血、恋爱、悬疑、奇幻等多品类漫画，支持在线浏览、书架收藏与更新提醒，帮助读者快速找到想看的作品并持续追更。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111827'/%3E%3Cpath d='M18 20h20a8 8 0 0 1 8 8v4a8 8 0 0 1-8 8H26l-8 8V20z' fill='%23f97316'/%3E%3Ccircle cx='30' cy='30' r='3' fill='%23111827'/%3E%3Ccircle cx='40' cy='30' r='3' fill='%23111827'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#111827;
+  --ink-soft:#374151;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --paper:#ffffff;
+  --paper-2:#f7f7f9;
+  --brand:#f97316;
+  --brand-deep:#ea580c;
+  --accent:#2563eb;
+  --radius:16px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{max-width:100%;display:block;}
+.wrap{width:min(1120px,92%);margin:0 auto;}
+.skip{position:absolute;left:-9999px;}
+.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:8px;z-index:99;}
+
+/* header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.5px;color:var(--ink);}
+.logo-mark{
+  width:38px;height:38px;border-radius:12px;
+  background:linear-gradient(135deg,var(--brand),#fdba74);
+  display:grid;place-items:center;flex:none;
+  box-shadow:0 6px 16px rgba(249,115,22,.28);
+}
+.logo-mark svg{width:22px;height:22px;}
+.nav{display:flex;align-items:center;gap:26px;font-size:15px;color:var(--ink-soft);}
+.nav a{padding:4px 0;border-bottom:2px solid transparent;transition:.2s;}
+.nav a:hover{color:var(--brand-deep);border-color:var(--brand);}
+.header-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--ink);color:#fff;font-size:14px;font-weight:600;
+  padding:9px 18px;border-radius:999px;transition:.2s;white-space:nowrap;
+}
+.header-cta:hover{background:var(--brand-deep);}
+.menu-toggle{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:8px;cursor:pointer;}
+.menu-toggle span{display:block;width:20px;height:2px;background:var(--ink);margin:4px 0;}
+
+/* hero */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 420px at 88% -10%,rgba(249,115,22,.16),transparent 62%),
+    radial-gradient(700px 380px at 4% 110%,rgba(37,99,235,.12),transparent 60%),
+    var(--paper-2);
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+  padding:64px 0 68px;
+}
+.hero h1{
+  font-size:clamp(34px,4.6vw,56px);
+  line-height:1.15;margin:0 0 18px;letter-spacing:-.5px;font-weight:800;
+}
+.hero h1 .hl{
+  background:linear-gradient(180deg,transparent 62%,rgba(249,115,22,.35) 62%);
+  padding:0 4px;
+}
+.hero-lead{font-size:17px;color:var(--ink-soft);margin:0 0 26px;max-width:34em;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:999px;font-weight:600;font-size:15px;
+  transition:.2s;border:1px solid transparent;cursor:pointer;
+}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 10px 22px rgba(249,115,22,.28);}
+.btn-primary:hover{background:var(--brand-deep);}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink);}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand-deep);}
+.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;pointer-events:none;}
+.hero-stats{display:flex;flex-wrap:wrap;gap:32px;padding-top:8px;border-top:1px dashed var(--line);padding-top:22px;}
+.stat b{display:block;font-size:22px;font-weight:800;color:var(--ink);line-height:1.3;}
+.stat span{font-size:13px;color:var(--muted);}
+.hero-visual{position:relative;}
+.hero-visual .frame{
+  background:#fff;border:1px solid var(--line);border-radius:22px;
+  padding:16px;box-shadow:0 24px 60px rgba(17,24,39,.10);
+}
+.hero-visual .frame svg{width:100%;height:auto;border-radius:14px;}
+.hero-tag{
+  position:absolute;right:-8px;top:-14px;background:var(--ink);color:#fff;
+  font-size:12px;font-weight:600;padding:6px 14px;border-radius:999px;
+  box-shadow:0 10px 20px rgba(17,24,39,.2);
+}
+
+/* section base */
+section{padding:64px 0;}
+.section-head{max-width:640px;margin-bottom:34px;}
+.eyebrow{
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:2px;
+  color:var(--brand-deep);text-transform:uppercase;margin-bottom:10px;
+}
+.section-head h2{font-size:clamp(24px,3vw,32px);margin:0 0 12px;line-height:1.3;font-weight:800;}
+.section-head p{margin:0;color:var(--muted);font-size:15.5px;}
+
+/* categories */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.cat-card{
+  border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px;
+  background:#fff;transition:.2s;
+}
+.cat-card:hover{border-color:var(--brand);transform:translateY(-3px);box-shadow:0 14px 30px rgba(17,24,39,.07);}
+.cat-icon{
+  width:42px;height:42px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;
+  background:var(--paper-2);color:var(--brand-deep);
+}
+.cat-card h3{margin:0 0 6px;font-size:16.5px;font-weight:700;}
+.cat-card p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.65;}
+
+/* recommit */
+.rec-section{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.rec-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:26px;}
+.filter-btn{
+  border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+  font-size:14px;padding:8px 18px;border-radius:999px;cursor:pointer;transition:.2s;
+}
+.filter-btn:hover{border-color:var(--brand);color:var(--brand-deep);}
+.filter-btn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+.search-box{margin-left:auto;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 16px;}
+.search-box input{border:none;outline:none;font-size:14px;width:170px;font-family:inherit;background:transparent;color:var(--ink);}
+.search-box button{
+  border:none;background:var(--brand);color:#fff;font-size:13px;font-weight:600;
+  padding:7px 16px;border-radius:999px;cursor:pointer;font-family:inherit;transition:.2s;
+}
+.search-box button:hover{background:var(--brand-deep);}
+.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.rec-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.2s;
+}
+.rec-card:hover{box-shadow:0 18px 40px rgba(17,24,39,.09);transform:translateY(-3px);}
+.rec-cover{height:150px;position:relative;}
+.rec-cover svg{width:100%;height:100%;}
+.rec-badge{
+  position:absolute;left:12px;top:12px;background:rgba(17,24,39,.82);color:#fff;
+  font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:999px;letter-spacing:.5px;
+}
+.rec-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1;}
+.rec-body h3{margin:0 0 6px;font-size:17px;font-weight:700;}
+.rec-meta{font-size:12.5px;color:var(--muted);margin-bottom:10px;}
+.rec-body p{margin:0 0 16px;font-size:14px;color:var(--ink-soft);line-height:1.7;flex:1;}
+.rec-link{font-size:14px;font-weight:600;color:var(--brand-deep);display:inline-flex;align-items:center;gap:6px;}
+.rec-link:hover{gap:10px;transition:.2s;}
+.empty-tip{display:none;padding:28px;text-align:center;color:var(--muted);font-size:14.5px;background:#fff;border:1px dashed var(--line);border-radius:var(--radius);}
+
+/* guide */
+.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.guide-item{padding:26px 22px;border-radius:var(--radius);background:var(--paper-2);border:1px solid var(--line);}
+.guide-num{
+  font-size:13px;font-weight:800;color:#fff;background:var(--ink);
+  width:30px;height:30px;border-radius:50%;display:grid;place-items:center;margin-bottom:14px;
+}
+.guide-item h3{margin:0 0 8px;font-size:16.5px;font-weight:700;}
+.guide-item p{margin:0;font-size:14px;color:var(--ink-soft);}
+
+/* faq */
+.faq-section{background:var(--paper-2);border-top:1px solid var(--line);}
+.faq-list{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;}
+.faq-item h3{margin:0 0 8px;font-size:15.5px;font-weight:700;color:var(--ink);}
+.faq-item p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.75;}
+
+/* cta band */
+.cta-band{
+  background:linear-gradient(120deg,#111827,#1f2937 55%,#7c2d12);
+  color:#fff;border-radius:24px;padding:48px 44px;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px;
+}
+.cta-band h2{margin:0 0 8px;font-size:clamp(22px,2.6vw,28px);font-weight:800;}
+.cta-band p{margin:0;color:#d1d5db;font-size:14.5px;max-width:38em;}
+.cta-band .btn-primary{box-shadow:0 12px 26px rgba(249,115,22,.35);}
+
+/* footer */
+.site-footer{background:#0f172a;color:#cbd5e1;padding:52px 0 30px;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.12);}
+.footer-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:#fff;margin-bottom:12px;}
+.footer-brand .logo-mark{box-shadow:none;}
+.footer-top p{margin:0;font-size:13.5px;line-height:1.8;color:#94a3b8;max-width:32em;}
+.footer-col h4{margin:0 0 14px;font-size:14px;color:#fff;font-weight:700;}
+.footer-col ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;}
+.footer-col a{font-size:13.5px;color:#94a3b8;transition:.2s;}
+.footer-col a:hover{color:var(--brand);}
+.footer-bottom{padding-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:12.5px;color:#64748b;}
+
+@media (max-width:960px){
+  .hero-inner{grid-template-columns:1fr;padding:48px 0 52px;gap:34px;}
+  .hero-visual{order:-1;max-width:420px;}
+  .cat-grid{grid-template-columns:1fr 1fr;}
+  .rec-grid{grid-template-columns:1fr 1fr;}
+  .guide-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .faq-list{grid-template-columns:1fr;}
+}
+@media (max-width:720px){
+  .nav{display:none;}
+  .nav.open{
+    display:flex;position:absolute;left:0;right:0;top:68px;flex-direction:column;
+    background:#fff;padding:16px 4%;gap:0;border-bottom:1px solid var(--line);
+    box-shadow:0 16px 30px rgba(17,24,39,.08);
+  }
+  .nav.open a{padding:12px 0;border-bottom:1px solid var(--line);}
+  .menu-toggle{display:block;}
+  .header-cta{display:none;}
+  section{padding:48px 0;}
+  .rec-grid{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:1fr;}
+  .search-box{margin-left:0;width:100%;}
+  .search-box input{flex:1;width:auto;}
+  .cta-band{padding:34px 24px;border-radius:18px;}
+  .footer-top{grid-template-columns:1fr;gap:28px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="抖漫 首页">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h11a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5H9l-5 4V5z" fill="#fff"/><circle cx="10" cy="11" r="1.4" fill="#f97316"/><circle cx="15" cy="11" r="1.4" fill="#f97316"/></svg>
+      </span>
+      <span>抖漫</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="主导航">
+      <a href="#categories">漫画分类</a>
+      <a href="#recommend">热门推荐</a>
+      <a href="#guide">阅读指南</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="header-cta" href="#recommend">开始追更</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="展开导航" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div>
+        <h1><span class="hl">抖漫</span></h1>
+        <p class="hero-lead">抖漫是一个面向漫画读者的在线阅读与追更平台。这里汇集热血、恋爱、悬疑、奇幻等多种题材作品，你可以按分类浏览、加入书架收藏，并通过更新提醒持续跟进喜欢的连载。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#recommend">浏览热门漫画</a>
+          <a class="btn btn-ghost" href="#categories">查看分类导航</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>4</b><span>主要题材方向</span></div>
+          <div class="stat"><b>书架</b><span>收藏与追更入口</span></div>
+          <div class="stat"><b>更新</b><span>连载提醒机制</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <span class="hero-tag">阅读进行时</span>
+        <div class="frame">
+          <svg viewBox="0 0 420 300" role="img" aria-label="漫画阅读场景插画">
+            <rect width="420" height="300" rx="16" fill="#f7f7f9"/>
+            <rect x="26" y="30" width="180" height="240" rx="12" fill="#ffffff" stroke="#e5e7eb"/>
+            <rect x="44" y="50" width="144" height="86" rx="8" fill="#fed7aa"/>
+            <circle cx="86" cy="92" r="16" fill="#f97316"/>
+            <path d="M70 128c8-14 24-18 36-8" stroke="#ea580c" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <rect x="44" y="150" width="104" height="9" rx="4.5" fill="#e5e7eb"/>
+            <rect x="44" y="168" width="132" height="9" rx="4.5" fill="#e5e7eb"/>
+            <rect x="44" y="186" width="90" height="9" rx="4.5" fill="#e5e7eb"/>
+            <rect x="44" y="214" width="144" height="40" rx="8" fill="#eef2ff"/>
+            <rect x="58" y="228" width="70" height="10" rx="5" fill="#c7d2fe"/>
+            <rect x="220" y="30" width="174" height="112" rx="12" fill="#111827"/>
+            <rect x="238" y="50" width="90" height="10" rx="5" fill="#f97316"/>
+            <rect x="238" y="70" width="132" height="8" rx="4" fill="#4b5563"/>
+            <rect x="238" y="86" width="110" height="8" rx="4" fill="#4b5563"/>
+            <rect x="238" y="110" width="66" height="18" rx="9" fill="#f97316"/>
+            <rect x="220" y="156" width="174" height="114" rx="12" fill="#ffffff" stroke="#e5e7eb"/>
+            <rect x="238" y="176" width="52" height="52" rx="8" fill="#dbeafe"/>
+            <rect x="300" y="176" width="76" height="10" rx="5" fill="#e5e7eb"/>
+            <rect x="300" y="196" width="58" height="10" rx="5" fill="#e5e7eb"/>
+            <rect x="238" y="240" width="138" height="10" rx="5" fill="#e5e7eb"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="categories">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Categories</span>
+        <h2>按题材找到想看的漫画</h2>
+        <p>抖漫按读者常见的阅读偏好划分题材入口，每个入口对应一类作品方向，方便你从兴趣出发快速进入内容区，而不必在大量作品中逐一翻找。</p>
+      </div>
+      <div class="cat-grid">
+        <article class="cat-card">
+          <div class="cat-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" fill="currentColor"/></svg>
+          </div>
+          <h3>热血少年</h3>
+          <p>成长、战斗与伙伴关系为主线，节奏明快，适合偏好强情节推进的读者。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10z" fill="currentColor"/></svg>
+          </div>
+          <h3>恋爱日常</h3>
+          <p>以人物关系与情感细节见长，篇幅多为中短篇，适合碎片时间阅读。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2.2"/><path d="m16 16 5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>悬疑推理</h3>
+          <p>线索铺设与反转结构是核心看点，阅读时建议按章节顺序跟进。</p>
+        </article>
+        <article class="cat-card">
+          <div class="cat-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.2 5.5.8-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.5-.8L12 3z" fill="currentColor"/></svg>
+          </div>
+          <h3>奇幻设定</h3>
+          <p>世界观与设定驱动故事，适合喜欢沉浸式背景与想象空间的读者。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="rec-section" id="recommend">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Recommend</span>
+        <h2>热门漫画推荐</h2>
+        <p>以下为抖漫编辑按题材整理的推荐条目，卡片展示作品方向、更新状态与简介要点。可使用题材筛选与关键词搜索缩小范围。</p>
+      </div>
+      <div class="rec-tools">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="热血">热血</button>
+        <button class="filter-btn" data-filter="恋爱">恋爱</button>
+        <button class="filter-btn" data-filter="悬疑">悬疑</button>
+        <button class="filter-btn" data-filter="奇幻">奇幻</button>
+        <div class="search-box">
+          <input type="search" id="searchInput" placeholder="搜索作品名或关键词" aria-label="搜索漫画作品">
+          <button type="button" id="searchBtn">搜索</button>
+        </div>
+      </div>
+      <div class="rec-grid" id="recGrid">
+        <article class="rec-card" data-tags="热血" data-title="少年长夜行">
+          <div class="rec-cover">
+            <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="150" fill="#1f2937"/><circle cx="86" cy="70" r="30" fill="#f97316"/><path d="M60 122c14-26 40-34 60-18" stroke="#fdba74" stroke-width="7" fill="none" stroke-linecap="round"/><rect x="180" y="46" width="150" height="12" rx="6" fill="#4b5563"/><rect x="180" y="70" width="110" height="12" rx="6" fill="#4b5563"/></svg>
+            <span class="rec-badge">连载中</span>
+          </div>
+          <div class="rec-body">
+            <h3>少年长夜行</h3>
+            <div class="rec-meta">热血 · 少年成长</div>
+            <p>以一场夜间突围展开，主角在队伍磨合中逐步确认自己的目标，适合喜欢并肩作战叙事的读者。</p>
+            <a class="rec-link" href="#recommend">查看作品 →</a>
+          </div>
+        </article>
+        <article class="rec-card" data-tags="恋爱" data-title="春日来信">
+          <div class="rec-cover">
+            <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="150" fill="#fff1f2"/><rect x="40" y="34" width="150" height="84" rx="10" fill="#fff" stroke="#fecdd3"/><path d="M40 44l75 46 75-46" stroke="#fda4af" stroke-width="4" fill="none"/><circle cx="290" cy="66" r="26" fill="#fb7185"/><rect x="250" y="104" width="90" height="10" rx="5" fill="#fecdd3"/></svg>
+            <span class="rec-badge">连载中</span>
+          </div>
+          <div class="rec-body">
+            <h3>春日来信</h3>
+            <div class="rec-meta">恋爱 · 校园日常</div>
+            <p>围绕一封信件的误会与回应推进关系，叙事重心放在对话和细节，节奏舒缓。</p>
+            <a class="rec-link" href="#recommend">查看作品 →</a>
+          </div>
+        </article>
+        <article class="rec-card" data-tags="悬疑" data-title="第七号档案">
+          <div class="rec-cover">
+            <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="150" fill="#0f172a"/><rect x="44" y="32" width="120" height="90" rx="8" fill="#1e293b" stroke="#334155"/><rect x="60" y="50" width="70" height="9" rx="4.5" fill="#64748b"/><rect x="60" y="68" width="86" height="9" rx="4.5" fill="#64748b"/><rect x="60" y="86" width="52" height="9" rx="4.5" fill="#f59e0b"/><circle cx="286" cy="76" r="34" stroke="#f59e0b" stroke-width="5" fill="none"/><path d="M312 102l26 26" stroke="#f59e0b" stroke-width="7" stroke-linecap="round"/></svg>
+            <span class="rec-badge">连载中</span>
+          </div>
+          <div class="rec-body">
+            <h3>第七号档案</h3>
+            <div class="rec-meta">悬疑 · 推理调查</div>
+            <p>以一份编号档案为线索串联多个事件，章节末常留有悬念，建议连续阅读。</p>
+            <a class="rec-link" href="#recommend">查看作品 →</a>
+          </div>
+        </article>
+        <article class="rec-card" data-tags="奇幻" data-title="雾海旅人">
+          <div class="rec-cover">
+            <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="150" fill="#ede9fe"/><path d="M0 118c50-26 110-26 160 0s110 26 160 0 80-14 80-14V150H0z" fill="#c4b5fd"/><circle cx="308" cy="46" r="22" fill="#8b5cf6"/><path d="M70 96l24-40 24 40z" fill="#7c3aed"/><rect x="120" y="60" width="90" height="10" rx="5" fill="#a78bfa"/></svg>
+            <span class="rec-badge">连载中</span>
+          </div>
+          <div class="rec-body">
+            <h3>雾海旅人</h3>
+            <div class="rec-meta">奇幻 · 冒险设定</div>
+            <p>故事发生在被雾海分隔的大陆，主角以旅人身份穿行各地，逐步揭开设定背后的规则。</p>
+            <a class="rec-link" href="#recommend">查看作品 →</a>
+          </div>
+        </article>
+        <article class="rec-card" data-tags="热血 奇幻" data-title="铁轨之上">
+          <div class="rec-cover">
+            <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="150" fill="#111827"/><rect x="0" y="104" width="400" height="8" fill="#374151"/><rect x="0" y="122" width="400" height="8" fill="#374151"/><rect x="60" y="46" width="80" height="58" rx="8" fill="#f97316"/><rect x="150" y="60" width="60" height="44" rx="6" fill="#fb923c"/><rect x="250" y="34" width="120" height="10" rx="5" fill="#4b5563"/><rect x="250" y="54" width="88" height="10" rx="5" fill="#4b5563"/></svg>
+            <span class="rec-badge">连载中</span>
+          </div>
+          <div class="rec-body">
+            <h3>铁轨之上</h3>
+            <div class="rec-meta">热血 · 奇幻冒险</div>
+            <p>以移动中的列车为舞台，人物关系与冲突在有限空间中集中展开，场面调度感较强。</p>
+            <a class="rec-link" href="#recommend">查看作品 →</a>
+          </div>
+        </article>
+        <article class="rec-card" data-tags="恋爱 悬疑" data-title="午夜咖啡馆">
+          <div class="rec-cover">
+            <svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="150" fill="#1c1917"/><rect x="40" y="44" width="140" height="80" rx="10" fill="#292524" stroke="#44403c"/><rect x="60" y="66" width="80" height="9" rx="4.5" fill="#78716c"/><rect x="60" y="84" width="56" height="9" rx="4.5" fill="#f59e0b"/><circle cx="300" cy="72" r="30" fill="#f59e0b" opacity=".85"/><rect x="250" y="112" width="110" height="9" rx="4.5" fill="#44403c"/></svg>
+            <span class="rec-badge">连载中</span>
+          </div>
+          <div class="rec-body">
+            <h3>午夜咖啡馆</h3>
+            <div class="rec-meta">恋爱 · 悬疑氛围</div>
+            <p>咖啡馆作为固定场景承载多组人物故事，情感线与谜题线索交替推进。</p>
+            <a class="rec-link" href="#recommend">查看作品 →</a>
+          </div>
+        </article>
+      </div>
+      <p class="empty-tip" id="emptyTip">没有找到匹配的作品，试试换一个关键词，或点击“全部”查看所有推荐。</p>
+    </div>
+  </section>
+
+  <section id="guide">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Reading Guide</span>
+        <h2>在抖漫阅读与追更的方式</h2>
+        <p>从进入分类到建立稳定的追更习惯，通常只需三步。以下顺序按实际使用路径排列，适合首次访问的读者参考。</p>
+      </div>
+      <div class="guide-grid">
+        <article class="guide-item">
+          <div class="guide-num">1</div>
+          <h3>先按题材进入</h3>
+          <p>在分类区选择自己常看的题材，能显著减少浏览成本。若不确定偏好，可先从热门推荐中挑一部试读。</p>
+        </article>
+        <article class="guide-item">
+          <div class="guide-num">2</div>
+          <h3>加入书架收藏</h3>
+          <p>遇到想持续跟进的作品，加入书架后便于集中查看。书架的作用是归集，而不是替代分类浏览。</p>
+        </article>
+        <article class="guide-item">
+          <div class="guide-num">3</div>
+          <h3>关注更新状态</h3>
+          <p>连载作品的更新节奏各不相同，查看卡片上的状态标签与简介要点，可以判断是否适合按周追更。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>关于抖漫的常见问题</h2>
+        <p>以下回答基于平台当前的页面功能与内容组织方式，若后续功能调整，以页面实际呈现为准。</p>
+      </div>
+      <div class="faq-list">
+        <article class="faq-item">
+          <h3>抖漫主要提供什么内容？</h3>
+          <p>抖漫围绕漫画阅读展开，按热血、恋爱、悬疑、奇幻等题材组织作品入口，并提供推荐条目与简介信息，帮助读者判断是否开始阅读。</p>
+        </article>
+        <article class="faq-item">
+          <h3>没有账号也能浏览吗？</h3>
+          <p>分类与推荐内容直接呈现在页面上，浏览与筛选无需额外操作。书架收藏、更新提醒等与个人相关的功能，需以登录后的实际页面为准。</p>
+        </article>
+        <article class="faq-item">
+          <h3>作品多久更新一次？</h3>
+          <p>不同作品更新节奏不一致，卡片上标注的是当前连载状态。具体更新频率以作品页面显示的信息为准，不建议按固定周期预期。</p>
+        </article>
+        <article class="faq-item">
+          <h3>如何快速找到某部作品？</h3>
+          <p>在推荐区使用搜索框输入作品名或关键词即可筛选；也可先选择题材按钮缩小范围，再在结果中定位目标作品。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>从一部作品开始，建立你的抖漫书架</h2>
+          <p>浏览分类、试读推荐、收藏想追的连载，是使用抖漫最直接的路径。先选一个题材，再决定下一部要追的作品。</p>
+        </div>
+        <a class="btn btn-primary" href="#recommend">进入热门推荐</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h11a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5H9l-5 4V5z" fill="#fff"/><circle cx="10" cy="11" r="1.4" fill="#f97316"/><circle cx="15" cy="11" r="1.4" fill="#f97316"/></svg>
+          </span>
+          <span>抖漫</span>
+        </div>
+        <p>抖漫是漫画阅读与追更主题的页面，围绕题材分类、作品推荐与阅读路径组织内容，帮助读者更快进入想看的作品。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#categories">漫画分类</a></li>
+          <li><a href="#recommend">热门推荐</a></li>
+          <li><a href="#guide">阅读指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>阅读入口</h4>
+        <ul>
+          <li><a href="#recommend">开始追更</a></li>
+          <li><a href="#recommend">题材筛选</a></li>
+          <li><a href="#top">返回顶部</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>抖漫 · 漫画阅读主题首页</span>
+      <span>页面内容以实际呈现为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle=document.getElementById('menuToggle');
+  var nav=document.getElementById('nav');
+  if(toggle&&nav){
+    toggle.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&nav.classList.contains('open')){
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var grid=document.getElementById('recGrid');
+  var cards=grid?Array.prototype.slice.call(grid.querySelectorAll('.rec-card')):[];
+  var emptyTip=document.getElementById('emptyTip');
+  var filterBtns=Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
+  var searchInput=document.getElementById('searchInput');
+  var searchBtn=document.getElementById('searchBtn');
+  var activeFilter='all';
+
+  function apply(){
+    var kw=searchInput?searchInput.value.trim().toLowerCase():'';
+    var visible=0;
+    cards.forEach(function(card){
+      var tags=card.getAttribute('data-tags')||'';
+      var title=(card.getAttribute('data-title')||'').toLowerCase();
+      var text=card.textContent.toLowerCase();
+      var okTag=(activeFilter==='all')||tags.indexOf(activeFilter)>-1;
+      var okKey=(kw==='')||title.indexOf(kw)>-1||text.indexOf(kw)>-1;
+      var show=okTag&&okKey;
+      card.style.display=show?'':'none';
+      if(show)visible++;
+    });
+    if(emptyTip)emptyTip.style.display=visible?'none':'block';
+  }
+
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      filterBtns.forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      activeFilter=btn.getAttribute('data-filter')||'all';
+      apply();
+    });
+  });
+
+  if(searchBtn)searchBtn.addEventListener('click',apply);
+  if(searchInput){
+    searchInput.addEventListener('input',apply);
+    searchInput.addEventListener('keydown',function(e){
+      if(e.key==='Enter'){e.preventDefault();apply();}
+    });
+  }
+})();
+</script>
+</body>
+                                                                                                                                                                                                                                     </html>
